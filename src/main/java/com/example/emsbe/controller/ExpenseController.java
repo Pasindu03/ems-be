@@ -2,6 +2,7 @@ package com.example.emsbe.controller;
 
 import com.example.emsbe.entity.Expense;
 import com.example.emsbe.service.ExpenseService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class ExpenseController {
     }
 
     @PostMapping
-    public Expense create(@RequestBody Expense expense) {
+    public Expense create(@Valid @RequestBody Expense expense) {
         return service.saveExpense(expense);
     }
 
@@ -33,7 +34,7 @@ public class ExpenseController {
     }
 
     @PutMapping("/{id}")
-    public Expense update(@PathVariable Long id, @RequestBody Expense expense) {
+    public Expense update(@PathVariable Long id, @Valid @RequestBody Expense expense) {
         return service.updateExpense(id, expense);
     }
 
