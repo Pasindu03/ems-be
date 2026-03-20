@@ -30,6 +30,7 @@ public class ExpenseService {
     public Expense updateExpense(Long id, Expense updated) {
         Expense existing = getExpenseById(id);
 
+        existing.setTitle(updated.getTitle());
         existing.setDate(updated.getDate());
         existing.setCostGbp(updated.getCostGbp());
         existing.setDescription(updated.getDescription());
